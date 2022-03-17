@@ -1,9 +1,5 @@
 import React from 'react'
-import Course from '../Course'
-import Payment from '../Payment'
-import Info from './Info'
-import Project from './Project'
-import Coin from './Coin'
+import { Outlet } from 'react-router-dom'
 
 export default function Profile() {
     return (
@@ -28,11 +24,7 @@ export default function Profile() {
                             <a href="#">Quản lý COIN của tôi</a>
                         </div>
                         <div className="tab-content">
-                            <Info />
-                            <Course />
-                            <Project />
-                            <Payment />
-                            <Coin />
+                            <Outlet />
                         </div>
                     </div>
                 </div>
