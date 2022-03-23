@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Sidebar() {
 
@@ -6,27 +7,26 @@ export default function Sidebar() {
         document.body.classList.toggle('menu-is-show')
     }
 
+
+
     return (
         <>
             <nav className="nav">
                 <ul>
                     <li className="li_login">
-                        <a href="#">Đăng ký / Đăng nhập</a>
-                    </li>
-                    <li className="active">
-                        <a href="#">Trang chủ</a>
+                        <NavLink onClick={close} to="/dang-nhap">Đăng ký / Đăng nhập</NavLink>
                     </li>
                     <li>
-                        <a href="#">CFD Team</a>
+                        <NavLink  onClick={close} to="/">Trang chủ</NavLink>
                     </li>
                     <li>
-                        <a href="#">Khóa Học</a>
+                        <NavLink onClick={close} to="/thanh-vien">CFD Team</NavLink>
                     </li>
                     <li>
-                        <a href="#">Dự Án</a>
+                        <NavLink onClick={close} to="/khoa-hoc">Khóa Học</NavLink>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <NavLink onClick={close} to="/lien-he">Liên hệ</NavLink>
                     </li>
                 </ul>
             </nav>

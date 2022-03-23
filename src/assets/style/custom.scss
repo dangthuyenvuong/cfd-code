@@ -1,0 +1,33 @@
+
+
+.nav ul li a.active{
+    background-color: #00afab;
+    color: white;
+}
+
+.course .wrap .bottom .teacher .avatar {
+    height: 36px;
+    min-width: 36px;
+    img{
+        object-fit: cover;
+        height: 100%;
+    }
+}
+
+.register-course .wrap label input[type="password"]{
+    flex: 1;
+    height: 58px;
+    padding: 0 20px;
+    outline: none;
+    border: 1px solid #dbe0df;
+    font-family: main;
+    font-size: 16px;
+}
+
+.error-text{
+    width: 100% !important;
+    text-align: right;
+    margin-top: -26px;
+    color: red;
+    padding-right: 50px;
+}

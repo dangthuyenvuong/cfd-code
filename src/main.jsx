@@ -4,10 +4,17 @@ import App from './App'
 import './assets/dest/style.min.css'
 import './assets/dest/fonts.css'
 import './assets/dest/stylelibs.min.css'
+import './assets/style/custom.scss'
+import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

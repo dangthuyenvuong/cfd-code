@@ -1,38 +1,46 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Course from '../Course'
 import Payment from '../Payment'
 import Info from './Info'
 import Project from './Project'
 import Coin from './Coin'
+import { Link, Navigate, NavLink, Outlet } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 
-export default function Profile() {
+export default function Profile({ path }) {
+
+    const { user } = useContext(AuthContext)
+
+    const login = true
+
+    if(!user) return <Navigate to="/"/>
+
     return (
         <main className="profile" id="main">
+            {
+                !login && <Navigate to="/" />
+            }
             <section>
                 <div className="top-info">
                     <div className="avatar">
                         {/* <span class="text">H</span> */}
-                        <img src="img/avatar-lg.png" alt="" />
+                        <img src={user.avatar} alt="" />
                         <div className="camera" />
                     </div>
-                    <div className="name">trần nghĩa</div>
+                    <div className="name">{user.name}</div>
                     <p className="des">Thành viên của team CFD1-OFFLINE</p>
                 </div>
                 <div className="container">
                     <div className="tab">
                         <div className="tab-title">
-                            <a href="#" className="active">Thông tin tài khoản</a>
-                            <a href="#">Khóa học của bạn</a>
-                            <a href="#">Dự án đã làm</a>
-                            <a href="#">Lịch sử thanh toán</a>
-                            <a href="#">Quản lý COIN của tôi</a>
+                            <NavLink to={`${path}`} end>Thông tin tài khoản</NavLink>
+                            <NavLink to={`${path}/khoa-hoc`}>Khóa học của bạn</NavLink>
+                            <NavLink to={`${path}/du-an`}>Dự án đã làm</NavLink>
+                            <NavLink to={`${path}/thanh-toan`}>Lịch sử thanh toán</NavLink>
+                            <NavLink to={`${path}/coin`}>Quản lý COIN của tôi</NavLink>
                         </div>
                         <div className="tab-content">
-                            <Info />
-                            <Course />
-                            <Project />
-                            <Payment />
-                            <Coin />
+                            <Outlet />
                         </div>
                     </div>
                 </div>
